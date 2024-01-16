@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="description" content="Conversatio Chat - A simple chat application">
+        <meta name="keywords" content="Conversatio Chat, Chat, Conversatio">
+        <meta name="author" content="Johnearthcraft">
+
+        <title>Conversatio Chat</title>
+
+        <link rel="icon" type="image/png" href="auth/assets/favicon.png" />
+    
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-rCkQmGez8Ly5TQqC6NzN/+tWuMOKb2hqSj/gbcjZUu0C8RqyYDi4jxve2DH0jFGQ" crossorigin="anonymous">
+
+
+        <link rel="stylesheet" href="styles.css">
+
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+
+    <body>
+        <div id="new-chat_overlay">
+            <div id="new-chat_popup">
+                <div id="new-chat_header">
+                    <div>
+                        <h2> <i class="fa-solid fa-pen-to-square"></i> Start a new chat</h2>
+                    </div>
+                    <button id="new-chat_close-button" onclick="closeNewChat()"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <div id="new-chat_details">
+                    <input id="new-chat_name" type="text" required> 
+                    <button id="new-chat_create-button" onclick="createChat()">New chat</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="settings_overlay">
+            <div id="settings_popup">
+
+                <div id="settings_header">
+                    <div>
+                        <h2><i style="margin-right: 10px" class="fa-solid fa-gear"></i>Settings</h2>
+                    </div>
+                    <button id="settings_close-button" onclick="closeSettings()"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+
+                <div class="settings-sidebar">
+                    <div id="settings-menu">
+                        <div class="settings-menu-item" id="settings-profile-menu-item" onclick="showSection('profile', 'settings-profile-menu-item')"><i class="fa-solid fa-user"></i>Profile</div>
+                        <div class="settings-menu-item" id="settings-auth-menu-item" onclick="showSection('authentication', 'settings-auth-menu-item')"> <i class="fa-solid fa-key"></i> Authentication</div>
+                        <div class="settings-menu-item" id="settings-theme-menu-item" onclick="showSection('theme', 'settings-theme-menu-item')"><i class="fa-solid fa-layer-group"></i>Theme</div>
+                        <div class="settings-menu-item" id="settings-danger-menu-item" onclick="showSection('danger', 'settings-danger-menu-item')"><i class="fa-solid fa-triangle-exclamation"></i>Danger Zone</div>
+                    </div>
+                </div>
+
+                <div id="settings_content">
+                <div id="profile-section">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" disabled>
+                </div>
+
+                <div id="authentication-section" style="display: none;">
+                    <label for="settings_email">E-Mail</label>
+                    <input id="settings_email" type="email" disabled>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" disabled>
+                </div>
+
+                <div id="theme-section" style="display: none;">
+                    <p>Coming soon!</p>
+                </div>
+
+                 <div id="danger-section" style="display: none;">
+                    <button id="logout-button" onclick="logout()">Log out</button>
+                </div>
+             </div>
+
+    </div>
+    </div>
+
+        <div id="sidebar">
+            <div id="sidebar-top-buttons">
+                <button class="sidebar-button" id="new-chat-button" onclick="openNewChat()"> <i class="fa-solid fa-pen-to-square"></i> New chat</button>
+            </div>
+
+            <div id="chats-list">
+                <ul id=chats></ul>
+            </div>
+            
+            <div id="sidebar-bottom-buttons">
+                <button class="sidebar-button" id="temp-logout-button" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i>Log out</button>
+                <button class="sidebar-button" id="settings-button" onclick=""><i class="fa-solid fa-spinner"></i>Loading...</button>
+            </div>
+        </div>
+        
+        <div id="content">
+            <div id="messages-container">
+                <ul id="messages"></ul>
+            </div>
+
+            <div id="message-input-container">
+                <!-- <button id="attachment-button" onclick=""><i class="fa-solid fa-paperclip" style="color: #ffffff;"></i></button> -->
+                <input id="message-input" type="text" placeholder="Type your message..."></input>
+                <button id="send-button" onclick="addMessageToChat()"><i class="fa-solid fa-share" style="color: #ffffff;"></i></button>
+            </div>
+        </div>
+    
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+        <script src="app.js"></script>
+
+        <script src="https://kit.fontawesome.com/d94d01613f.js" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/png" href="assets/favicon.png">
+        <title>Conversatio Chat</title>
+
+        <link rel="stylesheet" href="styles/login.css">
+    </head>
+
+    <body>
+        <div class="login-container">
+            <h2>Welcome back</h2>
+            <form class="login-form" action="#" method="post">
+                <div class="form-group">
+                    <label for="email" style="font-weight: bold">E-Mail</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" style="font-weight: bold">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <p style="font-size: 12px;">Forgot password? <a href="resetpassword.html" style="text-decoration: none; color: #000000; font-weight: bold">Reset</a></p>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" onclick="login()">Log In</button>
+                </div>
+            </form>
+
+            <p style="font-size: 12px;">Don't have an account? <a href="signup.html" style="text-decoration: none; color: #000000; font-weight: bold">Sign up</a></p>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+        <script src="scripts/login.js"></script>
+    </body>
+</html>
